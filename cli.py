@@ -29,10 +29,13 @@ agent = initialize_agent(
     agent=AgentType.OPENAI_FUNCTIONS,
     verbose=False,
     agent_kwargs=agent_kwargs,
+    return_intermediate_steps=True,
 )
 
 while True:
     query = input("Query: ")
-    answer = agent.run(query)
-    print(answer)
+    answer = agent({"input": query})
+    sql_query = answer["intermediate_steps"][-1][0].log
+    print(f"\nAgent log: {sql_query}")
+    print(f"\nAnswer: {answer['output']}")
     print("\n\n")
