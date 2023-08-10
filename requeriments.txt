@@ -1,5 +1,5 @@
-openai
-langchain
-psycopg2-binary
-sqlalchemy
-pandas
+openai==0.27.8
+langchain==0.0.260
+psycopg2-binary==2.9.7
+SQLAlchemy==2.0.19
+pandas==2.0.3
